@@ -109,7 +109,7 @@ class snmp::params {
       $sysconfig            = '/etc/default/snmpd'
       $var_net_snmp         = '/var/lib/snmp'
       $varnetsnmp_perms     = '0755'
-      if $lsbdistcodename == "bionic" {
+      if versioncmp($::lsbdistrelease, '16.04') > 0 {
         $varnetsnmp_owner     = 'Debian-snmp'
       } else {
         $varnetsnmp_owner     = 'snmp'
